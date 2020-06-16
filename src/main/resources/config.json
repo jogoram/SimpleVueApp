@@ -1,0 +1,166 @@
+{
+    "listBasculas": [
+        {
+            "modeloid": 1,
+            "modelo": "Rhino BACO-30",
+            "listItem": [],
+            "conf": {
+                "baud": 9600,
+                "bits": 8,
+                "paridad": "N",
+                "parada": 1,
+                "inicio": "WT:",
+                "fin": "kg",
+                "es_inv": false,
+                "es_pet": false,
+                "pet": "p",
+                "tiempo_esp": 0.2
+            }
+        },
+        {
+            "modeloid": 2,
+            "modelo": "Rhino BAR-8RS",
+            "listItem": [
+                {
+                    "puerto": 3,
+                    "nombre": "bascula 1"
+                },
+                {
+                    "puerto": 10,
+                    "nombre": "bascula2"
+                }
+            ],
+            "conf": {
+                "baud": 9600,
+                "bits": 8,
+                "paridad": "N",
+                "parada": 1,
+                "inicio": "g",
+                "fin": "k",
+                "es_inv": false,
+                "es_pet": true,
+                "pet": "P",
+                "tiempo_esp": 0.2
+            }
+        },
+        {
+            "modeloid": 3,
+            "modelo": "Rhino I-PAG",
+            "listItem": [],
+            "conf": {
+                "baud": 9600,
+                "bits": 8,
+                "paridad": "N",
+                "parada": 1,
+                "inicio": "GS",
+                "fin": "kg",
+                "es_inv": false,
+                "es_pet": false,
+                "pet": "",
+                "tiempo_esp": 0.2
+            }
+        },
+        {
+            "modeloid": 4,
+            "modelo": "Rhino I-QX",
+            "listItem": [],
+            "conf": {
+                "baud": 9600,
+                "bits": 8,
+                "paridad": "N",
+                "parada": 1,
+                "inicio": "\n",
+                "fin": "kg",
+                "es_inv": false,
+                "es_pet": false,
+                "pet": "",
+                "tiempo_esp": 0.2
+            }
+        },
+        {
+            "modeloid": 5,
+            "modelo": "Rhino I-QY",
+            "listItem": [],
+            "conf": {
+                "baud": 9600,
+                "bits": 8,
+                "paridad": "N",
+                "parada": 1,
+                "inicio": "\n",
+                "fin": "\n",
+                "es_inv": false,
+                "es_pet": false,
+                "pet": "",
+                "tiempo_esp": 0.2
+            }
+        },
+        {
+            "modeloid": 6,
+            "modelo": "Sanitary",
+            "listItem": [],
+            "conf": {
+                "baud": 9600,
+                "bits": 8,
+                "paridad": "N",
+                "parada": 1,
+                "inicio": "=",
+                "fin": "=",
+                "es_inv": true,
+                "es_pet": false,
+                "pet": "",
+                "tiempo_esp": 0.3
+            }
+        },
+        {
+            "modeloid": 7,
+            "modelo": "Metrology",
+            "listItem": [],
+            "conf": {
+                "baud": 9600,
+                "bits": 8,
+                "paridad": "N",
+                "parada": 1,
+                "inicio": "\n",
+                "fin": "kg",
+                "es_inv": false,
+                "es_pet": true,
+                "pet": "P",
+                "tiempo_esp": 0.2
+            }
+        },
+        {
+            "modeloid": 8,
+            "modelo": "Tecnocor",
+            "listItem": [],
+            "conf": {
+                "baud": 9600,
+                "bits": 8,
+                "paridad": "N",
+                "parada": 1,
+                "inicio": "\n",
+                "fin": "kg",
+                "es_inv": false,
+                "es_pet": true,
+                "pet": "P",
+                "tiempo_esp": 0.2
+            }
+        },
+        {
+            "modeloid": 9,
+            "modelo": "Torrey",
+            "listItem": [],
+            "conf": {
+                "baud": 9600,
+                "bits": 8,
+                "paridad": "N",
+                "parada": 1,
+                "inicio": "\n",
+                "fin": "kg",
+                "es_inv": false,
+                "es_pet": true,
+                "pet": "P",
+                "tiempo_esp": 0.2
+            }
+        }
+    ]
+}

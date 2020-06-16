@@ -35,7 +35,7 @@
                             
                             <v-toolbar-title class="display-1">Peso total: {{ pesoTotal }}  </v-toolbar-title>
                             <v-spacer></v-spacer>
-                            <v-toolbar-title class="display-1">Importe total: {{ pesoTotal }} </v-toolbar-title>                            
+                            <v-toolbar-title class="display-1">Importe total: {{ importeTotal }} </v-toolbar-title>                            
                             <v-spacer></v-spacer>
 
                             <v-spacer></v-spacer>
@@ -48,7 +48,7 @@
                         <v-col cols="4">
                             <v-card>
 
-                            <form-pesadas> </form-pesadas>
+                            <form-pesadas :pesob="pesoBascula"> </form-pesadas>
                             </v-card>
  
                         </v-col>
@@ -121,9 +121,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    
 
 
+
+    
     <script src="main.js"></script>
+    <script src="app.js"></script>
 
 </body>
 

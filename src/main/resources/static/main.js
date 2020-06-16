@@ -17,6 +17,7 @@ Vue.component('player-card', {
 
 
 Vue.component('form-pesadas',{
+    props: ['pesob'],
     template:`
     <div>
 
@@ -52,7 +53,7 @@ Vue.component('form-pesadas',{
       
       <v-col  cols="8">
       <v-col class="d-flex"  >
-      <v-text-field color="success" class="d-flex right-input display-1" label="Peso (kg)" v-model="peso"  readonly> </v-text-field>
+      <v-text-field color="success" class="d-flex right-input display-1" label="Peso (kg)" :value="pesob" readonly>   </v-text-field>
     </v-col>
   
 
@@ -64,7 +65,7 @@ Vue.component('form-pesadas',{
 
   
     <v-col class="d-flex"  >
-      <v-text-field color="success" class="d-flex right-input display-1"  label="Total $" v-model="total"  readonly align="right"> </v-text-field>
+      <v-text-field color="success" class="d-flex right-input display-1"  label="Total $":value=" pesob * precio " readonly align="right"> </v-text-field>
     </v-col>
   
       </v-col>
@@ -132,11 +133,12 @@ Vue.component('form-pesadas',{
             console.log("en limpiar tablas  x"+this);
             
             app.numeroRegistros = app.numeroRegistros+1;
+            this.peso = app.pesoBascula;
             this.total= this.peso * this.precio;
             // app.nombreTabla='se limpia la tabla';
             app.snackbar=true;
 
-            app.pesoTotal=app.pesoTotal + this.total;
+            app.pesoTotal= this.peso*1 +app.pesoTotal*1 ;
             app.importeTotal=app.importeTotal + this.total;
 
             app.textoMensaje = "Registro agregado";
@@ -148,7 +150,7 @@ Vue.component('form-pesadas',{
                     producto:this.producto,
                     peso:this.peso,
                     precio:this.precio,
-                    total:this.total
+                    total:this.total,
                 }
             );
         },
@@ -195,9 +197,9 @@ var app = new Vue({
             // },
             // { text: 'Bascula', value: 'bascula' },
             { text: 'Producto', value: 'producto' },
-            { text: 'Peso', value: 'peso' },
-            { text: 'Precio', value: 'precio' },   
-            { text: 'Total', value: 'total' },   
+            { text: 'Peso (kg)', value: 'peso' },
+            { text: 'Precio ($)', value: 'precio' },   
+            { text: 'Total ($)', value: 'total' },   
             { text: 'Acciones', value: 'acciones' },   
             
           ],        
@@ -209,8 +211,9 @@ var app = new Vue({
         numeroRegistros :0,
         snackbar: false,
         textoMensaje: 'Registro guardado',
-        
+        pesoBascula:0,        
         dialog: false,
+        
 
               
       
