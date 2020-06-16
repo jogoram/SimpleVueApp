@@ -16,45 +16,94 @@ Vue.component('player-card', {
 
 
 
-Vue.component('form-registro',{
+Vue.component('form-pesadas',{
     template:`
     <div>
+
+    <v-container fluid cols="12" sm="6">
     <form @submit.prevent="limpiarCampos">
-        <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input v-model="nombre" type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="apellido">Apellido</label>
-            <input  v-model="apellido"  type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="fechaN">Fecha de nacimiento</label>
-            <input  v-model="fechaNacimiento"  type="date" class="form-control">
-        </div>                    
-        
+
+
+    <v-row align="center">
+      <v-col class="d-flex"  >
+        <v-select v-model="bascula" 
+          :items="basculas"
+          label="Seleccionar bascula"
+        ></v-select>        
+      </v-col>
+    </v-row>
+
+    <v-row align="center">
+    <v-col class="d-flex"  >
+      <v-select v-model="producto" 
+        :items="productos"
+        label="Seleccionar producto"
+      ></v-select>        
+    </v-col>
+    </v-row>
+
+    <v-row align="center">
+      <v-col class="d-flex"  >
+        <v-text-field color="success" class="d-flex right-input" label="Peso" v-model="peso"  readonly> </v-text-field>
+      </v-col>
+    </v-row>   
+
+    <v-row align="center">
+      <v-col class="d-flex"  >
+        <v-text-field color="success" class="d-flex right-input"  label="Precio" v-model="precio"  readonly align="right"> </v-text-field>
+      </v-col>
+    </v-row>   
+
+    <v-row align="center">
+      <v-col class="d-flex"  >
+        <v-text-field color="success" class="d-flex right-input"  label="Total" v-model="total"  readonly align="right"> </v-text-field>
+      </v-col>
+    </v-row>   
+    
+
+    <v-row align="center">
+    <v-col class="d-flex"  >
         <v-btn type="submit" color="primary" dark  >Agregar</v-btn>
-    </form>
+    </v-col>
+  </v-row>
+  
+  </form>
+
+ 
+  </v-container>    
+
+    
     </div>`,
     data(){
         return {
-            nombre:null,
-            apellido:null,
-            fechaNacimiento:null
+
+            numero:0,            
+            producto:null,
+            peso:0.0,
+            precio:0.0,
+            total:0.0,
+            bascula:"bascula1",
+            basculas:["bascula1"],
+            productos:["producto1","producto2"]
+
         }
     },
     methods: {
         limpiarCampos: function () {
             console.log("en limpiar tablas "+this);
-            
-            app.nombreTabla='se limpia la tabla';
-            app.asistentes.push(
+            this.numero= this.numero+1;
+            // app.nombreTabla='se limpia la tabla';
+            app.pesadas.push(
                 {
-                    nombre:this.no,
-                    nombre:this.nombre+' '+this.apellido,
-                    edad:"37",
+                    numero:this.numero,
+                    bascula:this.bascula,
+                    producto:this.producto,
+                    peso:this.peso,
+                    precio:this.precio,
+                    total:this.total
                 }
             );
+
             
             
         }   
@@ -76,15 +125,19 @@ var app = new Vue({
               text: 'No',
               align: 'start',
               sortable: false,
-              value: 'no',
+              value: 'numero',
             },
-            { text: 'Nombre', value: 'nombre' },
-            { text: 'Edad', value: 'edad' },
-            
+            // { text: 'Bascula', value: 'bascula' },
+            { text: 'Producto', value: 'producto' },
+            { text: 'Peso', value: 'peso' },
+            { text: 'Precio', value: 'precio' },   
+            { text: 'Total', value: 'total' },   
             
           ],
         
         asistentes:[
+        ],
+        pesadas:[
         ],
        
         players: [
