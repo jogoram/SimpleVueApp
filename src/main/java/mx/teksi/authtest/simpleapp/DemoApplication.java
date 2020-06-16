@@ -1,4 +1,4 @@
-package mx.teksi.authtest.firebaseauth;
+package mx.teksi.authtest.simpleapp;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;

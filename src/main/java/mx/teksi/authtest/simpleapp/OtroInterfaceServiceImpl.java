@@ -1,4 +1,4 @@
-package mx.teksi.authtest.firebaseauth;
+package mx.teksi.authtest.simpleapp;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
