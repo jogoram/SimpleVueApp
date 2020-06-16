@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">    
+    <meta charset="UTF-8">
 
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
 
@@ -13,61 +14,117 @@
 
     <title>Inicio</title>
 </head>
+
 <body>
 
     <div id="app">
         <v-app>
-          <v-main>
-            <v-container>
-                <v-toolbar-title th:text="${tituloPagina}">  </v-toolbar-title>
+            <v-main>
+                <v-container fluid cols="12">
 
+                    <!-- <v-col class="text-center" cols="12">
 
-                <v-row>
-                    <v-col cols="4">
-        
-                        <form-pesadas>                    
-                        </form-pesadas> 
-                    </v-col>
-                    <v-col cols="8">
-                        <div>{{ nombreTabla }}</div>
-                        <div>
-                            <v-app id="inspire">
-                                <v-data-table
-                                  :headers="headers"
-                                  :items="pesadas"
-                                  :items-per-page="10"
-                                  class="elevation-1"
-                                ></v-data-table>
-                              </v-app>
-                        </div>
-                    </v-col>
-        
-                </v-row>
+                        <h4 class="subheading" th:text="${tituloPagina}"></h4>
+                    </v-col> -->
 
-                
-            </v-container>
-          </v-main>
+                    <v-row>
+                        <v-toolbar color="cyan" dark>
+
+                            <v-spacer></v-spacer>
+                            <v-spacer></v-spacer>
+                            
+                            <v-toolbar-title class="display-1">Peso total: {{ pesoTotal }}  </v-toolbar-title>
+                            <v-spacer></v-spacer>
+                            <v-toolbar-title class="display-1">Importe total: {{ pesoTotal }} </v-toolbar-title>                            
+                            <v-spacer></v-spacer>
+
+                            <v-spacer></v-spacer>
+
+                        </v-toolbar>
+
+                    </v-row>
+                    <v-row sm="12">
+
+                        <v-col cols="4">
+                            <v-card>
+
+                            <form-pesadas> </form-pesadas>
+                            </v-card>
+ 
+                        </v-col>
+
+                        <v-col cols="8">
+                            
+                            <div>
+                                <v-app id="inspire">
+                                    <v-data-table :headers="headers" :items="pesadas" :items-per-page="10"
+                                        class="elevation-1"></v-data-table>
+                                </v-app>
+                            </div>
+                        </v-col>
+                    </v-row>
+
+                </v-container>
+
+                <div class="text-center ma-2">
+
+                    <v-snackbar v-model="snackbar" timeout="2000">
+                        {{ textoMensaje }}
+
+                        <template v-slot:action="{ attrs }">
+                            <v-btn color="pink" text v-bind="attrs" @click="snackbar = false">
+                                OK
+                            </v-btn>
+                        </template>
+                    </v-snackbar>
+                </div>
+
+                <template>
+                    <v-row justify="center">
+                      <v-dialog v-model="dialog" persistent max-width="290">
+                     
+                        <v-card>
+                          <v-card-title class="headline">Confirmación</v-card-title>
+                          <v-card-text>¿Descartar todos los registros?</v-card-text>
+                          <v-card-actions>
+                            
+                            <v-btn color="red darken-1" text @click="confirmarCancelar">Si</v-btn>
+
+                            <v-spacer></v-spacer>
+
+                            <v-btn color="green darken-1" text @click="dialog = false">No</v-btn>
+                            
+                          </v-card-actions>
+                        </v-card>
+                      </v-dialog>
+                    </v-row>
+                  </template>
+
+            </v-main>
         </v-app>
-      </div>
+    </div>
 
 
 
-  
-
-    
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
 
     <script src="main.js"></script>
 
 </body>
+
 </html>
